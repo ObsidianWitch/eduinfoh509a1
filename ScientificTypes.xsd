@@ -1,7 +1,7 @@
 <?xml version="1.1" encoding="UTF-8"?>
 <xsd:schema xmlns="urn:2015:A1:BookShop:ScientificTypes"
     xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-    xmlns:ct="urn:2015:A1:BookShop:CommonTypes"
+    xmlns:c="urn:2015:A1:BookShop:CommonTypes"
     xmlns:toc="urn:2015:A1:BookShop:TableOfContentsTypes"
     targetNamespace="urn:2015:A1:BookShop:ScientificTypes"
     elementFormDefault="qualified" >
@@ -27,11 +27,11 @@
 
     <xsd:complexType name="SBookType">
         <xsd:complexContent>
-            <xsd:extension base="ct:BaseBookType">
+            <xsd:extension base="c:BaseBookType">
                 <xsd:sequence>
-                    <xsd:group ref="ct:AuthorEditorXORGroup" />
+                    <xsd:group ref="c:AuthorEditorXORGroup" />
                     <xsd:element name="Abstract" type="xsd:string" minOccurs="0" />
-                    <xsd:element name="ISBN" type="ct:ISBNType" minOccurs="0" />
+                    <xsd:element name="ISBN" type="c:ISBNType" minOccurs="0" />
                 </xsd:sequence>
             </xsd:extension>
         </xsd:complexContent>
@@ -49,7 +49,7 @@
             <xsd:element name="Title" type="xsd:string" />
             <xsd:element name="Volume" type="xsd:decimal" />
             <xsd:element name="Number" type="xsd:decimal" />
-            <xsd:group ref="ct:AuthorEditorXORGroup" />
+            <xsd:group ref="c:AuthorEditorXORGroup" />
             <xsd:element name="Year" type="xsd:gYear" />
             <xsd:element name="Publisher" type="xsd:string" minOccurs="0" />
             <xsd:element name="ImpactFlavor" type="xsd:decimal" minOccurs="0" />

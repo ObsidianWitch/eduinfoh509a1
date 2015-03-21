@@ -1,7 +1,7 @@
 <?xml version="1.1" encoding="UTF-8"?>
 <xsd:schema xmlns="urn:2015:A1:BookShop:LeisureTypes"
     xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-    xmlns:ct="urn:2015:A1:BookShop:CommonTypes"
+    xmlns:c="urn:2015:A1:BookShop:CommonTypes"
     targetNamespace="urn:2015:A1:BookShop:LeisureTypes"
     elementFormDefault="qualified" >
     
@@ -24,12 +24,12 @@
     
     <xsd:complexType name="LBookType">
         <xsd:complexContent>
-            <xsd:extension base="ct:BaseBookType">
+            <xsd:extension base="c:BaseBookType">
                 <xsd:sequence>
                     <xsd:element name="Author" type="xsd:string" maxOccurs="unbounded" />
                     <xsd:element name="Pages" type="xsd:decimal" minOccurs="0" />
                 </xsd:sequence>
-                <xsd:attribute name="Genre" type="ct:GenreType" use="required" />
+                <xsd:attribute name="Genre" type="c:GenreType" use="required" />
             </xsd:extension>
         </xsd:complexContent>
     </xsd:complexType>
@@ -44,7 +44,7 @@
     <xsd:complexType name="LPeriodicalType">
         <xsd:sequence>
             <xsd:element name="Title" type="xsd:string" />
-            <xsd:element name="Price" type="ct:PriceType" />
+            <xsd:element name="Price" type="c:PriceType" />
             <xsd:element name="Publisher" type="xsd:string" />
         </xsd:sequence>
     </xsd:complexType>

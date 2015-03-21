@@ -3,7 +3,7 @@
 <BookShop xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="urn:2015:A1:BookShop bookshop.xsd"
     xmlns="urn:2015:A1:BookShop"
-    xmlns:ct="urn:2015:A1:BookShop:CommonTypes"
+    xmlns:c="urn:2015:A1:BookShop:CommonTypes"
     xmlns:toc="urn:2015:A1:BookShop:TableOfContentsTypes"
     xmlns:s="urn:2015:A1:BookShop:ScientificTypes"
     xmlns:l="urn:2015:A1:BookShop:LeisureTypes">
@@ -11,20 +11,20 @@
     <ScientificProducts>
         <s:Books>
             <s:Book>
-                <ct:Title>Stochastic Local Search</ct:Title>
-                <ct:Publisher>Morgan Kaufmann</ct:Publisher>
-                <ct:Year>2005</ct:Year>
-                <ct:Author>Holger H. Hoos</ct:Author>
-                <ct:Author>Thomas Stützle</ct:Author>
+                <c:Title>Stochastic Local Search</c:Title>
+                <c:Publisher>Morgan Kaufmann</c:Publisher>
+                <c:Year>2005</c:Year>
+                <c:Author>Holger H. Hoos</c:Author>
+                <c:Author>Thomas Stützle</c:Author>
                 <s:ISBN>9781558608726</s:ISBN>
             </s:Book>
             
             <s:Book>
-                <ct:Title>Programming in Lua</ct:Title>
-                <ct:Publisher>Lua.org</ct:Publisher>
-                <ct:Year>2013</ct:Year>
-                <ct:Edition>3rd Edition</ct:Edition>
-                <ct:Author>Roberto Ierusalimschy</ct:Author>
+                <c:Title>Programming in Lua</c:Title>
+                <c:Publisher>Lua.org</c:Publisher>
+                <c:Year>2013</c:Year>
+                <c:Edition>3rd Edition</c:Edition>
+                <c:Author>Roberto Ierusalimschy</c:Author>
                 <s:ISBN>9788590379850</s:ISBN>
             </s:Book>
         </s:Books>
@@ -34,8 +34,8 @@
                 <s:Title>Journal of Functional Programming</s:Title>
                 <s:Volume>24</s:Volume>
                 <s:Number>1</s:Number>
-                <ct:Editor>Matthias Felleise</ct:Editor>
-                <ct:Editor>Jeremy Gibbons</ct:Editor>
+                <c:Editor>Matthias Felleise</c:Editor>
+                <c:Editor>Jeremy Gibbons</c:Editor>
                 <s:Year>2014</s:Year>
                 <s:ToC>
                     <toc:Article>
@@ -73,17 +73,17 @@
     <LeisureProducts>
         <l:Books>
             <l:Book Genre="sci/fi">
-                <ct:Title>Brave New World</ct:Title>
-                <ct:Publisher>Chatto &amp; Windus</ct:Publisher>
-                <ct:Year>1932</ct:Year>
+                <c:Title>Brave New World</c:Title>
+                <c:Publisher>Chatto &amp; Windus</c:Publisher>
+                <c:Year>1932</c:Year>
                 <l:Author>Aldous Huxley</l:Author>
             </l:Book>
             
             <l:Book Genre="sci/fi">
-                <ct:Title>Fahrenheit 451</ct:Title>
-                <ct:Publisher>Ballantine Books</ct:Publisher>
-                <ct:Year>1953</ct:Year>
-                <ct:Edition>1st edition</ct:Edition>
+                <c:Title>Fahrenheit 451</c:Title>
+                <c:Publisher>Ballantine Books</c:Publisher>
+                <c:Year>1953</c:Year>
+                <c:Edition>1st edition</c:Edition>
                 <l:Author>Ray Bradbury</l:Author>
                 <l:Pages>159</l:Pages>
             </l:Book>
