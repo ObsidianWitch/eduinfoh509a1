@@ -46,6 +46,12 @@
             </Book>
         </Books>
         
-        <!-- TODO -->
+        <Periodicals>
+            <Periodical>
+                <Title>Linux Magazine</Title>
+                <Price currency="USD">9.99</Price>
+                <Publisher>Linux New Media</Publisher>
+            </Periodical>
+        </Periodicals>
     </LeisureProducts>
 </BookShop>

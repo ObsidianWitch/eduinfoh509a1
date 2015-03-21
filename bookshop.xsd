@@ -12,7 +12,7 @@
     <xsd:complexType name="ScientificProductsType">
         <xsd:sequence>
             <xsd:element name="Books">
-                <xsd:complexType>
+                <xsd:complexType> <!-- TODO SBooksRootType -->
                     <xsd:sequence>
                         <xsd:element name="Book" type="SBookType"
                             minOccurs="0" maxOccurs="unbounded" />
@@ -21,7 +21,7 @@
             </xsd:element>
             
             <xsd:element name="Journals">
-                <xsd:complexType>
+                <xsd:complexType> <!-- TODO SJournalsRootType -->
                     <xsd:sequence>
                         <xsd:element name="Journal" type="SJournalType"
                             minOccurs="0" maxOccurs="unbounded" />
@@ -52,9 +52,18 @@
     <xsd:complexType name="LeisureProductsType">
         <xsd:sequence>
             <xsd:element name="Books">
-                <xsd:complexType>
+                <xsd:complexType> <!-- TODO LBooksRootType -->
                     <xsd:sequence>
                         <xsd:element name="Book" type="LBookType"
+                            minOccurs="0" maxOccurs="unbounded" />
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            
+            <xsd:element name="Periodicals">
+                <xsd:complexType> <!-- TODO LPeriodicalsRootType -->
+                    <xsd:sequence>
+                        <xsd:element name="Periodical" type="LPeriodicalType"
                             minOccurs="0" maxOccurs="unbounded" />
                     </xsd:sequence>
                 </xsd:complexType>
@@ -72,6 +81,14 @@
             <xsd:element name="Pages" type="xsd:decimal" minOccurs="0" />
         </xsd:sequence>
         <xsd:attribute name="Genre" type="GenreType" use="required" />
+    </xsd:complexType>
+    
+    <xsd:complexType name="LPeriodicalType">
+        <xsd:sequence>
+            <xsd:element name="Title" type="xsd:string" />
+            <xsd:element name="Price" type="PriceType" />
+            <xsd:element name="Publisher" type="xsd:string" />
+        </xsd:sequence>
     </xsd:complexType>
 
     <xsd:group name="AuthorEditorXORGroup">
@@ -95,6 +112,22 @@
             <xsd:enumeration value="sci/fi" />
             <xsd:enumeration value="romance" />
             <xsd:enumeration value="literature" />
+        </xsd:restriction>
+    </xsd:simpleType>
+    
+    <xsd:complexType name="PriceType">
+        <xsd:simpleContent>
+            <xsd:extension base="xsd:decimal">
+                <xsd:attribute name="currency" type="currencyType"
+                    use="required" />
+            </xsd:extension>
+        </xsd:simpleContent>
+    </xsd:complexType>
+    
+    <xsd:simpleType name="currencyType">
+        <xsd:restriction base="xsd:string">
+            <xsd:enumeration value="EUR" />
+            <xsd:enumeration value="USD" />
         </xsd:restriction>
     </xsd:simpleType>
 </xsd:schema>
