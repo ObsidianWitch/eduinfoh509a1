@@ -11,6 +11,15 @@
                 <Year>2005</Year>
                 <ISBN>9781558608726</ISBN>
             </Book>
+            
+            <Book>
+                <Title>Programming in Lua</Title>
+                <Author>Roberto Ierusalimschy</Author>
+                <Publisher>Lua.org</Publisher>
+                <Year>2013</Year>
+                <Edition>3rd Edition</Edition>
+                <ISBN>9788590379850</ISBN>
+            </Book>
         </Books>
     </ScientificProducts>
 </BookShop>
