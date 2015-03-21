@@ -63,5 +63,29 @@ specific *Book*, we would have to take the risk of unnecessarily having to skim
 trough some *Journal* elements.
 The same reasoning applies to *LeisureProducts*, *Books* and *Periodicals*.
 
-* <!-- TODO note regarding namespace URI + separation of types in multiple
-    files -->
+* An XML namespace is an URI, as such it can be an URL or an URN. URLs are
+commonly used for namespaces (e.g. *http://www.w3.org/2001/XMLSchema*). But it
+does not seem to make a lot of sense, since a namespace is only supposed to
+identify and not to locate. As such, we used URNs for our namespaces (e.g.
+*urn:2015:A1:BookShop*)
+    
+* We have separated our main schema into multiple files, which grants us easier
+to read schemas. However, the use of the schema in an XML instance is less
+straightforward than before. Furthermore, the multiple namespaces may not be
+organized/handled in the best way, and as such the creation of an XML instance
+of the BookShop schema might not be intuitive. Let's see the example below:
+
+    ~~~
+    ...
+    <s:Book>
+        <c:Title>Programming in Lua</c:Title>
+        <c:Publisher>Lua.org</c:Publisher>
+        <c:Year>2013</c:Year>
+        <c:Edition>3rd Edition</c:Edition>
+        <c:Author>Roberto Ierusalimschy</c:Author>
+        <s:ISBN>9788590379850</s:ISBN>
+    </s:Book>
+    ...
+    ~~~
+As we can see, the Book element is included the *s* namespace, but some of its
+children elements are owned by the *c* namespace and some others by *s*.
