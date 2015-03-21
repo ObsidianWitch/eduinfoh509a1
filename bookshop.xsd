@@ -1,5 +1,6 @@
 <?xml version="1.1" encoding="UTF-8"?>
-<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<xsd:schema targetNamespace="urn:2015:a1:bookshop"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema">
     <xsd:element name="BookShop">
     </xsd:element>
 </xsd:schema>

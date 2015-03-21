@@ -1,6 +1,6 @@
 <?xml version="1.1" encoding="UTF-8"?>
 
-<!-- TODO reference the schema -->
-
-<BookShop>
+<BookShop xmlns="urn:2015:a1:bookshop"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="urn:2015:a1:bookshop bookshop.xsd">
 </BookShop>
