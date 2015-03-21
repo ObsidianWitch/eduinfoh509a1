@@ -26,6 +26,10 @@ PascaleCase for elements and camelCase for attributes.
 
 * <http://www.liquid-technologies.com/Tutorials/XmlSchemas/XsdTutorial_04.aspx>
 
+## Examples
+* [books.xml](https://msdn.microsoft.com/en-us/library/ms764687(v=vs.85).aspx) &
+[books.xsd](https://msdn.microsoft.com/en-us/library/ms256485(v=vs.110).aspx)
+
 # Notes
 
 * The Root element is called BookShop. We could also have called it Department
