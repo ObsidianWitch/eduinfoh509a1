@@ -1,14 +1,11 @@
 <?xml version="1.1" encoding="UTF-8"?>
 <xsd:schema xmlns="urn:2015:A1:BookShop"
     xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-    xmlns:ct="urn:2015:A1:BookShop:CommonTypes"
     xmlns:s="urn:2015:A1:BookShop:ScientificTypes"
     xmlns:l="urn:2015:A1:BookShop:LeisureTypes"
     targetNamespace="urn:2015:A1:BookShop"
     elementFormDefault="qualified" >
     
-    <xsd:import schemaLocation="CommonTypes.xsd"
-        namespace="urn:2015:A1:BookShop:CommonTypes" />
     <xsd:import schemaLocation="ScientificTypes.xsd"
         namespace="urn:2015:A1:BookShop:ScientificTypes" />
     <xsd:import schemaLocation="LeisureTypes.xsd"
