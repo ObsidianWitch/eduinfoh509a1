@@ -24,15 +24,15 @@
     </xsd:complexType>
 
     <xsd:complexType name="SBookType">
-        <xsd:sequence>
-            <xsd:element name="Title" type="xsd:string" />
-            <xsd:group ref="AuthorEditorXORGroup" />
-            <xsd:element name="Publisher" type="xsd:string" />
-            <xsd:element name="Year" type="xsd:gYear" />
-            <xsd:element name="Abstract" type="xsd:string" minOccurs="0" />
-            <xsd:element name="Edition" type="xsd:string" minOccurs="0" />
-            <xsd:element name="ISBN" type="ISBNType" minOccurs="0" />
-        </xsd:sequence>
+        <xsd:complexContent>
+            <xsd:extension base="BaseBookType">
+                <xsd:sequence>
+                    <xsd:group ref="AuthorEditorXORGroup" />
+                    <xsd:element name="Abstract" type="xsd:string" minOccurs="0" />
+                    <xsd:element name="ISBN" type="ISBNType" minOccurs="0" />
+                </xsd:sequence>
+            </xsd:extension>
+        </xsd:complexContent>
     </xsd:complexType>
     
     <xsd:complexType name="SJournalsRootType">
@@ -70,15 +70,15 @@
     </xsd:complexType>
     
     <xsd:complexType name="LBookType">
-        <xsd:sequence>
-            <xsd:element name="Title" type="xsd:string" />
-            <xsd:element name="Author" type="xsd:string" maxOccurs="unbounded" />
-            <xsd:element name="Publisher" type="xsd:string" />
-            <xsd:element name="Year" type="xsd:gYear" />
-            <xsd:element name="Edition" type="xsd:string" minOccurs="0" />
-            <xsd:element name="Pages" type="xsd:decimal" minOccurs="0" />
-        </xsd:sequence>
-        <xsd:attribute name="Genre" type="GenreType" use="required" />
+        <xsd:complexContent>
+            <xsd:extension base="BaseBookType">
+                <xsd:sequence>
+                    <xsd:element name="Author" type="xsd:string" maxOccurs="unbounded" />
+                    <xsd:element name="Pages" type="xsd:decimal" minOccurs="0" />
+                </xsd:sequence>
+                <xsd:attribute name="Genre" type="GenreType" use="required" />
+            </xsd:extension>
+        </xsd:complexContent>
     </xsd:complexType>
     
     <xsd:complexType name="LPeriodicalsRootType">
@@ -93,6 +93,15 @@
             <xsd:element name="Title" type="xsd:string" />
             <xsd:element name="Price" type="PriceType" />
             <xsd:element name="Publisher" type="xsd:string" />
+        </xsd:sequence>
+    </xsd:complexType>
+    
+    <xsd:complexType name="BaseBookType">
+        <xsd:sequence>
+            <xsd:element name="Title" type="xsd:string" />
+            <xsd:element name="Publisher" type="xsd:string" />
+            <xsd:element name="Year" type="xsd:gYear" />
+            <xsd:element name="Edition" type="xsd:string" minOccurs="0" />
         </xsd:sequence>
     </xsd:complexType>
 
@@ -149,13 +158,13 @@
     <xsd:complexType name="PriceType">
         <xsd:simpleContent>
             <xsd:extension base="xsd:decimal">
-                <xsd:attribute name="currency" type="currencyType"
+                <xsd:attribute name="currency" type="CurrencyType"
                     use="required" />
             </xsd:extension>
         </xsd:simpleContent>
     </xsd:complexType>
     
-    <xsd:simpleType name="currencyType">
+    <xsd:simpleType name="CurrencyType">
         <xsd:restriction base="xsd:string">
             <xsd:enumeration value="EUR" />
             <xsd:enumeration value="USD" />

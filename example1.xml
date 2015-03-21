@@ -5,19 +5,19 @@
         <Books>
             <Book>
                 <Title>Stochastic Local Search</Title>
-                <Author>Holger H. Hoos</Author>
-                <Author>Thomas Stützle</Author>
                 <Publisher>Morgan Kaufmann</Publisher>
                 <Year>2005</Year>
+                <Author>Holger H. Hoos</Author>
+                <Author>Thomas Stützle</Author>
                 <ISBN>9781558608726</ISBN>
             </Book>
             
             <Book>
                 <Title>Programming in Lua</Title>
-                <Author>Roberto Ierusalimschy</Author>
                 <Publisher>Lua.org</Publisher>
                 <Year>2013</Year>
                 <Edition>3rd Edition</Edition>
+                <Author>Roberto Ierusalimschy</Author>
                 <ISBN>9788590379850</ISBN>
             </Book>
         </Books>
@@ -67,17 +67,17 @@
         <Books>
             <Book Genre="sci/fi">
                 <Title>Brave New World</Title>
-                <Author>Aldous Huxley</Author>
                 <Publisher>Chatto &amp; Windus</Publisher>
                 <Year>1932</Year>
+                <Author>Aldous Huxley</Author>
             </Book>
             
             <Book Genre="sci/fi">
                 <Title>Fahrenheit 451</Title>
-                <Author>Ray Bradbury</Author>
                 <Publisher>Ballantine Books</Publisher>
                 <Year>1953</Year>
                 <Edition>1st edition</Edition>
+                <Author>Ray Bradbury</Author>
                 <Pages>159</Pages>
             </Book>
         </Books>
