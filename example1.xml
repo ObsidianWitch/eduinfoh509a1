@@ -1,7 +1,7 @@
 <?xml version="1.1" encoding="UTF-8"?>
 
 <BookShop xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="urn:2015:A1:BookShop bookshop.xsd"
+    xsi:schemaLocation="urn:2015:A1:BookShop BookShop.xsd"
     xmlns="urn:2015:A1:BookShop"
     xmlns:c="urn:2015:A1:BookShop:CommonTypes"
     xmlns:toc="urn:2015:A1:BookShop:TableOfContentsTypes"
