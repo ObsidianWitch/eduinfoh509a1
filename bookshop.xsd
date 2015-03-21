@@ -57,23 +57,15 @@
     
     <xsd:complexType name="LeisureProductsType">
         <xsd:sequence>
-            <xsd:element name="Books">
-                <xsd:complexType> <!-- TODO LBooksRootType -->
-                    <xsd:sequence>
-                        <xsd:element name="Book" type="LBookType"
-                            minOccurs="0" maxOccurs="unbounded" />
-                    </xsd:sequence>
-                </xsd:complexType>
-            </xsd:element>
-            
-            <xsd:element name="Periodicals">
-                <xsd:complexType> <!-- TODO LPeriodicalsRootType -->
-                    <xsd:sequence>
-                        <xsd:element name="Periodical" type="LPeriodicalType"
-                            minOccurs="0" maxOccurs="unbounded" />
-                    </xsd:sequence>
-                </xsd:complexType>
-            </xsd:element>
+            <xsd:element name="Books" type="LBooksRootType" />
+            <xsd:element name="Periodicals" type="LPeriodicalsRootType" />
+        </xsd:sequence>
+    </xsd:complexType>
+    
+    <xsd:complexType name="LBooksRootType">
+        <xsd:sequence>
+            <xsd:element name="Book" type="LBookType"
+                minOccurs="0" maxOccurs="unbounded" />
         </xsd:sequence>
     </xsd:complexType>
     
@@ -87,6 +79,13 @@
             <xsd:element name="Pages" type="xsd:decimal" minOccurs="0" />
         </xsd:sequence>
         <xsd:attribute name="Genre" type="GenreType" use="required" />
+    </xsd:complexType>
+    
+    <xsd:complexType name="LPeriodicalsRootType">
+        <xsd:sequence>
+            <xsd:element name="Periodical" type="LPeriodicalType"
+                minOccurs="0" maxOccurs="unbounded" />
+        </xsd:sequence>
     </xsd:complexType>
     
     <xsd:complexType name="LPeriodicalType">
