@@ -23,7 +23,43 @@
         </Books>
         
         <Journals>
-            <!-- TODO -->
+            <Journal>
+                <Title>Journal of Functional Programming</Title>
+                <Volume>24</Volume>
+                <Number>1</Number>
+                <Editor>Matthias Felleise</Editor>
+                <Editor>Jeremy Gibbons</Editor>
+                <Year>2014</Year>
+                <ToC>
+                    <Article>
+                        <Title>Delimited control and computational
+                            effects</Title>
+                        <Author>Paul Downen</Author>
+                        <Author>Zena M. Ariola</Author>
+                        <StartPage>1</StartPage>
+                        <EndPage>55</EndPage>
+                    </Article>
+                    
+                    <Article>
+                        <Title>Implicit self-adjusting computation for purely
+                            functional programs</Title>
+                        <Author>Yan Chen</Author>
+                        <Author>Joshua Dunfield</Author>
+                        <Author>Matthew A. Hammer</Author>
+                        <Author>Umut A. Acar</Author>
+                        <StartPage>56</StartPage>
+                        <EndPage>112</EndPage>
+                    </Article>
+                    
+                    <Article>
+                        <Title>Work it, wrap it, fix it, fold it</Title>
+                        <Author>Neil Sculthorpe</Author>
+                        <Author>Graham Hutton</Author>
+                        <StartPage>113</StartPage>
+                        <EndPage>127</EndPage>
+                    </Article>
+                </ToC>
+            </Journal>
         </Journals>
     </ScientificProducts>
 

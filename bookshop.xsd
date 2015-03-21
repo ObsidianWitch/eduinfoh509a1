@@ -45,7 +45,14 @@
     
     <xsd:complexType name="SJournalType">
         <xsd:sequence>
-            <!-- TODO -->
+            <xsd:element name="Title" type="xsd:string" />
+            <xsd:element name="Volume" type="xsd:decimal" />
+            <xsd:element name="Number" type="xsd:decimal" />
+            <xsd:group ref="AuthorEditorXORGroup" />
+            <xsd:element name="Year" type="xsd:gYear" />
+            <xsd:element name="Publisher" type="xsd:string" minOccurs="0" />
+            <xsd:element name="ImpactFlavor" type="xsd:decimal" minOccurs="0" />
+            <xsd:element name="ToC" type="ToCType" minOccurs="0" />
         </xsd:sequence>
     </xsd:complexType>
     
@@ -104,6 +111,32 @@
             <xsd:pattern value="[0-9]{13}" />
         </xsd:restriction>
     </xsd:simpleType>
+    
+    <xsd:complexType name="ToCType">
+        <xsd:sequence>
+            <xsd:element name="Article" type="ToCArticleType"
+                maxOccurs="unbounded" />
+        </xsd:sequence>
+    </xsd:complexType>
+    
+    <xsd:complexType name="ToCArticleType">
+        <xsd:sequence>
+            <xsd:element name="Title" type="xsd:string" />
+            <xsd:element name="Author" type="xsd:string" maxOccurs="unbounded" />
+            <xsd:group ref="ToCArticlePositionGroup" />
+        </xsd:sequence>
+    </xsd:complexType>
+    
+    <xsd:group name="ToCArticlePositionGroup">
+        <xsd:choice>
+            <xsd:sequence>
+                <xsd:element name="StartPage" type="xsd:decimal" />
+                <xsd:element name="EndPage" type="xsd:decimal" />
+            </xsd:sequence>
+            
+            <xsd:element name="Number" type="xsd:decimal" />
+        </xsd:choice>
+    </xsd:group>
     
     <xsd:simpleType name="GenreType">
         <xsd:restriction base="xsd:string">
