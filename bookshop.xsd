@@ -11,23 +11,15 @@
     
     <xsd:complexType name="ScientificProductsType">
         <xsd:sequence>
-            <xsd:element name="Books">
-                <xsd:complexType> <!-- TODO SBooksRootType -->
-                    <xsd:sequence>
-                        <xsd:element name="Book" type="SBookType"
-                            minOccurs="0" maxOccurs="unbounded" />
-                    </xsd:sequence>
-                </xsd:complexType>
-            </xsd:element>
-            
-            <xsd:element name="Journals">
-                <xsd:complexType> <!-- TODO SJournalsRootType -->
-                    <xsd:sequence>
-                        <xsd:element name="Journal" type="SJournalType"
-                            minOccurs="0" maxOccurs="unbounded" />
-                    </xsd:sequence>
-                </xsd:complexType>
-            </xsd:element>
+            <xsd:element name="Books" type="SBooksRootType" />
+            <xsd:element name="Journals" type="SJournalsRootType" />
+        </xsd:sequence>
+    </xsd:complexType>
+    
+    <xsd:complexType name="SBooksRootType">
+        <xsd:sequence>
+            <xsd:element name="Book" type="SBookType"
+                minOccurs="0" maxOccurs="unbounded" />
         </xsd:sequence>
     </xsd:complexType>
 
@@ -40,6 +32,13 @@
             <xsd:element name="Abstract" type="xsd:string" minOccurs="0" />
             <xsd:element name="Edition" type="xsd:string" minOccurs="0" />
             <xsd:element name="ISBN" type="ISBNType" minOccurs="0" />
+        </xsd:sequence>
+    </xsd:complexType>
+    
+    <xsd:complexType name="SJournalsRootType">
+        <xsd:sequence>
+            <xsd:element name="Journal" type="SJournalType"
+                minOccurs="0" maxOccurs="unbounded" />
         </xsd:sequence>
     </xsd:complexType>
     
