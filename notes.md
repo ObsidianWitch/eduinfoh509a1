@@ -25,7 +25,6 @@ PascaleCase for elements and camelCase for attributes.
 ## Namespaces
 
 * <http://www.liquid-technologies.com/Tutorials/XmlSchemas/XsdTutorial_04.aspx>
-* [XML Namespace Name: URN or URL?](http://www.xfront.com/URLversusURN.pdf)
 
 # Notes
 
