@@ -35,3 +35,10 @@ PascaleCase for elements and camelCase for attributes.
 * The Root element is called BookShop. We could also have called it Department
 or BookShopDepartment, but the first name does not give enough information
 (department of what?), while the second one might be too verbose.
+
+* The ISBN is stored as a ISBNType which is a number on which restrictions have
+been defined. The first restriction is a pattern checking if the number has 10
+digits, while the second one checks if the number has 13 digits. One the
+two restriction must be validated in order for the ISBN to be valid. An ISBN
+also posseses groups separated by hyphens, but we do not store them neither
+do we check groups.

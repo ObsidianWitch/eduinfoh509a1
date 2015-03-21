@@ -41,7 +41,7 @@
     </xsd:group>
 
     <xsd:simpleType name="ISBNType">
-        <xsd:restriction base="xsd:string">
+        <xsd:restriction base="xsd:decimal">
             <xsd:pattern value="[0-9]{10}" />
             <xsd:pattern value="[0-9]{13}" />
         </xsd:restriction>
