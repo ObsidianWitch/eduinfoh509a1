@@ -42,3 +42,13 @@ digits, while the second one checks if the number has 13 digits. One the
 two restriction must be validated in order for the ISBN to be valid. An ISBN
 also posseses groups separated by hyphens, but we do not store them neither
 do we check groups.
+
+* The *PriceType* complex type possesses a *currency* attribute (e.g.```<price
+currency="EUR">10</price>```). We could have said that the *PriceType* should
+contain both the number and the currency in the its vlaue, but it would have
+been impractical if we had to do operations on the number later. It would have
+required to parse the string to extract the number.
+We also could have put the currency in an element instead of an atribute, but
+it is not really data, but more an additional information regarding the price.
+With the way we handled the price, we could easily modify our schema to allow
+multiple *Price* elements for different currencies in *Periodical*.
