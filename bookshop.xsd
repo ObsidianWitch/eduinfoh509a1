@@ -9,5 +9,18 @@
     </xsd:element>
     
     <xsd:complexType name="ScientificProductsType">
+        <xsd:sequence>
+            <xsd:element name="Books">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="Book" type="SBookType"
+                            minOccurs="0" maxOccurs="unbounded" />
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:complexType name="SBookType">
     </xsd:complexType>
 </xsd:schema>
