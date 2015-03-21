@@ -5,7 +5,8 @@
     xmlns="urn:2015:A1:BookShop"
     xmlns:ct="urn:2015:A1:BookShop:CommonTypes"
     xmlns:toc="urn:2015:A1:BookShop:TableOfContentsTypes"
-    xmlns:s="urn:2015:A1:BookShop:ScientificTypes">
+    xmlns:s="urn:2015:A1:BookShop:ScientificTypes"
+    xmlns:l="urn:2015:A1:BookShop:LeisureTypes">
     
     <ScientificProducts>
         <s:Books>
@@ -70,31 +71,31 @@
     </ScientificProducts>
 
     <LeisureProducts>
-        <Books>
-            <Book Genre="sci/fi">
+        <l:Books>
+            <l:Book Genre="sci/fi">
                 <ct:Title>Brave New World</ct:Title>
                 <ct:Publisher>Chatto &amp; Windus</ct:Publisher>
                 <ct:Year>1932</ct:Year>
-                <Author>Aldous Huxley</Author>
-            </Book>
+                <l:Author>Aldous Huxley</l:Author>
+            </l:Book>
             
-            <Book Genre="sci/fi">
+            <l:Book Genre="sci/fi">
                 <ct:Title>Fahrenheit 451</ct:Title>
                 <ct:Publisher>Ballantine Books</ct:Publisher>
                 <ct:Year>1953</ct:Year>
                 <ct:Edition>1st edition</ct:Edition>
-                <Author>Ray Bradbury</Author>
-                <Pages>159</Pages>
-            </Book>
-        </Books>
+                <l:Author>Ray Bradbury</l:Author>
+                <l:Pages>159</l:Pages>
+            </l:Book>
+        </l:Books>
         
-        <Periodicals>
-            <Periodical>
-                <Title>Linux Magazine</Title>
-                <Price currency="USD">9.99</Price>
-                <Publisher>Linux New Media</Publisher>
-            </Periodical>
-        </Periodicals>
+        <l:Periodicals>
+            <l:Periodical>
+                <l:Title>Linux Magazine</l:Title>
+                <l:Price currency="USD">9.99</l:Price>
+                <l:Publisher>Linux New Media</l:Publisher>
+            </l:Periodical>
+        </l:Periodicals>
     </LeisureProducts>
     
 </BookShop>
