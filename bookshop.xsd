@@ -22,5 +22,28 @@
     </xsd:complexType>
 
     <xsd:complexType name="SBookType">
+        <xsd:sequence>
+            <xsd:element name="Title" type="xsd:string" />
+            <xsd:group ref="AuthorEditorXORGroup" />
+            <xsd:element name="Publisher" type="xsd:string" />
+            <xsd:element name="Year" type="xsd:gYear" />
+            <xsd:element name="Abstract" type="xsd:string" minOccurs="0" />
+            <xsd:element name="Edition" type="xsd:string" minOccurs="0" />
+            <xsd:element name="ISBN" type="ISBNType" minOccurs="0" />
+        </xsd:sequence>
     </xsd:complexType>
+
+    <xsd:group name="AuthorEditorXORGroup">
+        <xsd:choice>
+            <xsd:element name="Author" type="xsd:string" maxOccurs="unbounded" />
+            <xsd:element name="Editor" type="xsd:string" maxOccurs="unbounded" />
+        </xsd:choice>
+    </xsd:group>
+
+    <xsd:simpleType name="ISBNType">
+        <xsd:restriction base="xsd:string">
+            <xsd:pattern value="[0-9]{10}" />
+            <xsd:pattern value="[0-9]{13}" />
+        </xsd:restriction>
+    </xsd:simpleType>
 </xsd:schema>

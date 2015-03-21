@@ -3,6 +3,14 @@
 <BookShop>
     <ScientificProducts>
         <Books>
+            <Book>
+                <Title>Stochastic Local Search</Title>
+                <Author>Holger H. Hoos</Author>
+                <Author>Thomas Stützle</Author>
+                <Publisher>Morgan Kaufmann</Publisher>
+                <Year>2005</Year>
+                <ISBN>9781558608726</ISBN>
+            </Book>
         </Books>
     </ScientificProducts>
 </BookShop>
