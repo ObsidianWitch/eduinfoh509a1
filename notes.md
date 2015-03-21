@@ -89,3 +89,12 @@ of the BookShop schema might not be intuitive. Let's see the example below:
     ~~~
 As we can see, the Book element is included the *s* namespace, but some of its
 children elements are owned by the *c* namespace and some others by *s*.
+
+# TODOs
+
+* report
+* report diagrams
+* more examples?
+* check if some elements should be attributes instead of elements (e.g.
+    *StartPage* and *EndPage* for example?)
+* better way of organizing/handling namespaces?
