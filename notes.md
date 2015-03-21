@@ -41,15 +41,15 @@ or BookShopDepartment, but the first name does not give enough information
 been defined. The first restriction is a pattern checking if the number has 10
 digits, while the second one checks if the number has 13 digits. One the
 two restriction must be validated in order for the ISBN to be valid. An ISBN
-also posseses groups separated by hyphens, but we do not store them neither
+also possesses groups separated by hyphens, but we do not store them neither
 do we check groups.
 
 * The *PriceType* complex type possesses a *currency* attribute (e.g.```<price
 currency="EUR">10</price>```). We could have said that the *PriceType* should
-contain both the number and the currency in the its vlaue, but it would have
+contain both the number and the currency in the its value, but it would have
 been impractical if we had to do operations on the number later. It would have
 required to parse the string to extract the number.
-We also could have put the currency in an element instead of an atribute, but
+We also could have put the currency in an element instead of an attribute, but
 it is not really data, but more an additional information regarding the price.
 With the way we handled the price, we could easily modify our schema to allow
 multiple *Price* elements for different currencies in *Periodical*.
@@ -57,7 +57,7 @@ multiple *Price* elements for different currencies in *Periodical*.
 * The *ScientificProducts* element contains the *Books* and the *Journals*
 elements. The *Books* element contains *Book* elements and the *Journals*
 element contains *Journals* elements.
-We could have stored both the *Book* and *Journal* elements direcly as children
+We could have stored both the *Book* and *Journal* elements directly as children
 of *ScientificProducts*, but by doing so, if we wanted to retrieve a
 specific *Book*, we would have to take the risk of unnecessarily having to skim
 trough some *Journal* elements.
