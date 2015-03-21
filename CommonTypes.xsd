@@ -1,0 +1,56 @@
+<?xml version="1.1" encoding="UTF-8"?>
+<xsd:schema xmlns="urn:2015:A1:BookShop:CommonTypes"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    targetNamespace="urn:2015:A1:BookShop:CommonTypes"
+    elementFormDefault="qualified" >
+
+        <xsd:complexType name="BaseBookType">
+            <xsd:sequence>
+                <xsd:element name="Title" type="xsd:string" />
+                <xsd:element name="Publisher" type="xsd:string" />
+                <xsd:element name="Year" type="xsd:gYear" />
+                <xsd:element name="Edition" type="xsd:string" minOccurs="0" />
+            </xsd:sequence>
+        </xsd:complexType>
+
+        <xsd:group name="AuthorEditorXORGroup">
+            <xsd:choice>
+                <xsd:element name="Author" type="xsd:string" maxOccurs="unbounded" />
+                <xsd:element name="Editor" type="xsd:string" maxOccurs="unbounded" />
+            </xsd:choice>
+        </xsd:group>
+
+        <xsd:simpleType name="ISBNType">
+            <xsd:restriction base="xsd:decimal">
+                <xsd:pattern value="[0-9]{10}" />
+                <xsd:pattern value="[0-9]{13}" />
+            </xsd:restriction>
+        </xsd:simpleType>
+
+        <xsd:simpleType name="GenreType">
+            <xsd:restriction base="xsd:string">
+                <xsd:enumeration value="thriller" />
+                <xsd:enumeration value="horror" />
+                <xsd:enumeration value="sci/fi" />
+                <xsd:enumeration value="romance" />
+                <xsd:enumeration value="literature" />
+            </xsd:restriction>
+        </xsd:simpleType>
+
+        <xsd:complexType name="PriceType">
+            <xsd:simpleContent>
+                <xsd:extension base="xsd:decimal">
+                    <xsd:attribute name="currency" type="CurrencyType"
+                        use="required" />
+                </xsd:extension>
+            </xsd:simpleContent>
+        </xsd:complexType>
+
+        <xsd:simpleType name="CurrencyType">
+            <xsd:restriction base="xsd:string">
+                <xsd:enumeration value="EUR" />
+                <xsd:enumeration value="USD" />
+            </xsd:restriction>
+        </xsd:simpleType>
+
+</xsd:schema>

@@ -1,10 +1,20 @@
 <?xml version="1.1" encoding="UTF-8"?>
-<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<xsd:schema xmlns="urn:2015:A1:BookShop"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:ct="urn:2015:A1:BookShop:CommonTypes"
+    targetNamespace="urn:2015:A1:BookShop"
+    elementFormDefault="qualified" >
+    
+    <xsd:import schemaLocation="CommonTypes.xsd"
+        namespace="urn:2015:A1:BookShop:CommonTypes" />
+    
     <xsd:element name="BookShop">
         <xsd:complexType>
             <xsd:sequence>
-                <xsd:element name="ScientificProducts" type="ScientificProductsType"/>
-                <xsd:element name="LeisureProducts" type="LeisureProductsType"/>
+                <xsd:element name="ScientificProducts"
+                    type="ScientificProductsType"/>
+                <xsd:element name="LeisureProducts"
+                    type="LeisureProductsType"/>
             </xsd:sequence>
         </xsd:complexType>
     </xsd:element>
@@ -25,11 +35,11 @@
 
     <xsd:complexType name="SBookType">
         <xsd:complexContent>
-            <xsd:extension base="BaseBookType">
+            <xsd:extension base="ct:BaseBookType">
                 <xsd:sequence>
-                    <xsd:group ref="AuthorEditorXORGroup" />
+                    <xsd:group ref="ct:AuthorEditorXORGroup" />
                     <xsd:element name="Abstract" type="xsd:string" minOccurs="0" />
-                    <xsd:element name="ISBN" type="ISBNType" minOccurs="0" />
+                    <xsd:element name="ISBN" type="ct:ISBNType" minOccurs="0" />
                 </xsd:sequence>
             </xsd:extension>
         </xsd:complexContent>
@@ -47,7 +57,7 @@
             <xsd:element name="Title" type="xsd:string" />
             <xsd:element name="Volume" type="xsd:decimal" />
             <xsd:element name="Number" type="xsd:decimal" />
-            <xsd:group ref="AuthorEditorXORGroup" />
+            <xsd:group ref="ct:AuthorEditorXORGroup" />
             <xsd:element name="Year" type="xsd:gYear" />
             <xsd:element name="Publisher" type="xsd:string" minOccurs="0" />
             <xsd:element name="ImpactFlavor" type="xsd:decimal" minOccurs="0" />
@@ -71,12 +81,12 @@
     
     <xsd:complexType name="LBookType">
         <xsd:complexContent>
-            <xsd:extension base="BaseBookType">
+            <xsd:extension base="ct:BaseBookType">
                 <xsd:sequence>
                     <xsd:element name="Author" type="xsd:string" maxOccurs="unbounded" />
                     <xsd:element name="Pages" type="xsd:decimal" minOccurs="0" />
                 </xsd:sequence>
-                <xsd:attribute name="Genre" type="GenreType" use="required" />
+                <xsd:attribute name="Genre" type="ct:GenreType" use="required" />
             </xsd:extension>
         </xsd:complexContent>
     </xsd:complexType>
@@ -91,33 +101,10 @@
     <xsd:complexType name="LPeriodicalType">
         <xsd:sequence>
             <xsd:element name="Title" type="xsd:string" />
-            <xsd:element name="Price" type="PriceType" />
+            <xsd:element name="Price" type="ct:PriceType" />
             <xsd:element name="Publisher" type="xsd:string" />
         </xsd:sequence>
     </xsd:complexType>
-    
-    <xsd:complexType name="BaseBookType">
-        <xsd:sequence>
-            <xsd:element name="Title" type="xsd:string" />
-            <xsd:element name="Publisher" type="xsd:string" />
-            <xsd:element name="Year" type="xsd:gYear" />
-            <xsd:element name="Edition" type="xsd:string" minOccurs="0" />
-        </xsd:sequence>
-    </xsd:complexType>
-
-    <xsd:group name="AuthorEditorXORGroup">
-        <xsd:choice>
-            <xsd:element name="Author" type="xsd:string" maxOccurs="unbounded" />
-            <xsd:element name="Editor" type="xsd:string" maxOccurs="unbounded" />
-        </xsd:choice>
-    </xsd:group>
-
-    <xsd:simpleType name="ISBNType">
-        <xsd:restriction base="xsd:decimal">
-            <xsd:pattern value="[0-9]{10}" />
-            <xsd:pattern value="[0-9]{13}" />
-        </xsd:restriction>
-    </xsd:simpleType>
     
     <xsd:complexType name="ToCType">
         <xsd:sequence>
@@ -145,29 +132,4 @@
         </xsd:choice>
     </xsd:group>
     
-    <xsd:simpleType name="GenreType">
-        <xsd:restriction base="xsd:string">
-            <xsd:enumeration value="thriller" />
-            <xsd:enumeration value="horror" />
-            <xsd:enumeration value="sci/fi" />
-            <xsd:enumeration value="romance" />
-            <xsd:enumeration value="literature" />
-        </xsd:restriction>
-    </xsd:simpleType>
-    
-    <xsd:complexType name="PriceType">
-        <xsd:simpleContent>
-            <xsd:extension base="xsd:decimal">
-                <xsd:attribute name="currency" type="CurrencyType"
-                    use="required" />
-            </xsd:extension>
-        </xsd:simpleContent>
-    </xsd:complexType>
-    
-    <xsd:simpleType name="CurrencyType">
-        <xsd:restriction base="xsd:string">
-            <xsd:enumeration value="EUR" />
-            <xsd:enumeration value="USD" />
-        </xsd:restriction>
-    </xsd:simpleType>
 </xsd:schema>
