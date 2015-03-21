@@ -2,11 +2,14 @@
 <xsd:schema xmlns="urn:2015:A1:BookShop"
     xmlns:xsd="http://www.w3.org/2001/XMLSchema"
     xmlns:ct="urn:2015:A1:BookShop:CommonTypes"
+    xmlns:toc="urn:2015:A1:BookShop:TableOfContentsTypes"
     targetNamespace="urn:2015:A1:BookShop"
     elementFormDefault="qualified" >
     
     <xsd:import schemaLocation="CommonTypes.xsd"
         namespace="urn:2015:A1:BookShop:CommonTypes" />
+    <xsd:import schemaLocation="TableOfContentsTypes.xsd"
+        namespace="urn:2015:A1:BookShop:TableOfContentsTypes" />
     
     <xsd:element name="BookShop">
         <xsd:complexType>
@@ -61,7 +64,7 @@
             <xsd:element name="Year" type="xsd:gYear" />
             <xsd:element name="Publisher" type="xsd:string" minOccurs="0" />
             <xsd:element name="ImpactFlavor" type="xsd:decimal" minOccurs="0" />
-            <xsd:element name="ToC" type="ToCType" minOccurs="0" />
+            <xsd:element name="ToC" type="toc:ToCType" minOccurs="0" />
         </xsd:sequence>
     </xsd:complexType>
     
@@ -105,31 +108,4 @@
             <xsd:element name="Publisher" type="xsd:string" />
         </xsd:sequence>
     </xsd:complexType>
-    
-    <xsd:complexType name="ToCType">
-        <xsd:sequence>
-            <xsd:element name="Article" type="ToCArticleType"
-                maxOccurs="unbounded" />
-        </xsd:sequence>
-    </xsd:complexType>
-    
-    <xsd:complexType name="ToCArticleType">
-        <xsd:sequence>
-            <xsd:element name="Title" type="xsd:string" />
-            <xsd:element name="Author" type="xsd:string" maxOccurs="unbounded" />
-            <xsd:group ref="ToCArticlePositionGroup" />
-        </xsd:sequence>
-    </xsd:complexType>
-    
-    <xsd:group name="ToCArticlePositionGroup">
-        <xsd:choice>
-            <xsd:sequence>
-                <xsd:element name="StartPage" type="xsd:decimal" />
-                <xsd:element name="EndPage" type="xsd:decimal" />
-            </xsd:sequence>
-            
-            <xsd:element name="Number" type="xsd:decimal" />
-        </xsd:choice>
-    </xsd:group>
-    
 </xsd:schema>

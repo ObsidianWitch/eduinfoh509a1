@@ -1,0 +1,33 @@
+<?xml version="1.1" encoding="UTF-8"?>
+<xsd:schema xmlns="urn:2015:A1:BookShop:TableOfContentsTypes"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    targetNamespace="urn:2015:A1:BookShop:TableOfContentsTypes"
+    elementFormDefault="qualified" >
+
+    <xsd:complexType name="ToCType">
+        <xsd:sequence>
+            <xsd:element name="Article" type="ToCArticleType"
+                maxOccurs="unbounded" />
+        </xsd:sequence>
+    </xsd:complexType>
+    
+    <xsd:complexType name="ToCArticleType">
+        <xsd:sequence>
+            <xsd:element name="Title" type="xsd:string" />
+            <xsd:element name="Author" type="xsd:string" maxOccurs="unbounded" />
+            <xsd:group ref="ToCArticlePositionGroup" />
+        </xsd:sequence>
+    </xsd:complexType>
+    
+    <xsd:group name="ToCArticlePositionGroup">
+        <xsd:choice>
+            <xsd:sequence>
+                <xsd:element name="StartPage" type="xsd:decimal" />
+                <xsd:element name="EndPage" type="xsd:decimal" />
+            </xsd:sequence>
+            
+            <xsd:element name="Number" type="xsd:decimal" />
+        </xsd:choice>
+    </xsd:group>
+
+</xsd:schema>
