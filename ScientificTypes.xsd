@@ -1,0 +1,60 @@
+<?xml version="1.1" encoding="UTF-8"?>
+<xsd:schema xmlns="urn:2015:A1:BookShop:ScientificTypes"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:ct="urn:2015:A1:BookShop:CommonTypes"
+    xmlns:toc="urn:2015:A1:BookShop:TableOfContentsTypes"
+    targetNamespace="urn:2015:A1:BookShop:ScientificTypes"
+    elementFormDefault="qualified" >
+    
+    <xsd:import schemaLocation="CommonTypes.xsd"
+        namespace="urn:2015:A1:BookShop:CommonTypes" />
+    <xsd:import schemaLocation="TableOfContentsTypes.xsd"
+        namespace="urn:2015:A1:BookShop:TableOfContentsTypes" />
+    
+    <xsd:complexType name="ScientificProductsType">
+        <xsd:sequence>
+            <xsd:element name="Books" type="SBooksRootType" />
+            <xsd:element name="Journals" type="SJournalsRootType" />
+        </xsd:sequence>
+    </xsd:complexType>
+    
+    <xsd:complexType name="SBooksRootType">
+        <xsd:sequence>
+            <xsd:element name="Book" type="SBookType"
+                minOccurs="0" maxOccurs="unbounded" />
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:complexType name="SBookType">
+        <xsd:complexContent>
+            <xsd:extension base="ct:BaseBookType">
+                <xsd:sequence>
+                    <xsd:group ref="ct:AuthorEditorXORGroup" />
+                    <xsd:element name="Abstract" type="xsd:string" minOccurs="0" />
+                    <xsd:element name="ISBN" type="ct:ISBNType" minOccurs="0" />
+                </xsd:sequence>
+            </xsd:extension>
+        </xsd:complexContent>
+    </xsd:complexType>
+    
+    <xsd:complexType name="SJournalsRootType">
+        <xsd:sequence>
+            <xsd:element name="Journal" type="SJournalType"
+                minOccurs="0" maxOccurs="unbounded" />
+        </xsd:sequence>
+    </xsd:complexType>
+    
+    <xsd:complexType name="SJournalType">
+        <xsd:sequence>
+            <xsd:element name="Title" type="xsd:string" />
+            <xsd:element name="Volume" type="xsd:decimal" />
+            <xsd:element name="Number" type="xsd:decimal" />
+            <xsd:group ref="ct:AuthorEditorXORGroup" />
+            <xsd:element name="Year" type="xsd:gYear" />
+            <xsd:element name="Publisher" type="xsd:string" minOccurs="0" />
+            <xsd:element name="ImpactFlavor" type="xsd:decimal" minOccurs="0" />
+            <xsd:element name="ToC" type="toc:ToCType" minOccurs="0" />
+        </xsd:sequence>
+    </xsd:complexType>
+    
+</xsd:schema>

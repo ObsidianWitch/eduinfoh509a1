@@ -4,38 +4,39 @@
     xsi:schemaLocation="urn:2015:A1:BookShop bookshop.xsd"
     xmlns="urn:2015:A1:BookShop"
     xmlns:ct="urn:2015:A1:BookShop:CommonTypes"
-    xmlns:toc="urn:2015:A1:BookShop:TableOfContentsTypes">
+    xmlns:toc="urn:2015:A1:BookShop:TableOfContentsTypes"
+    xmlns:s="urn:2015:A1:BookShop:ScientificTypes">
     
     <ScientificProducts>
-        <Books>
-            <Book>
+        <s:Books>
+            <s:Book>
                 <ct:Title>Stochastic Local Search</ct:Title>
                 <ct:Publisher>Morgan Kaufmann</ct:Publisher>
                 <ct:Year>2005</ct:Year>
                 <ct:Author>Holger H. Hoos</ct:Author>
                 <ct:Author>Thomas Stützle</ct:Author>
-                <ISBN>9781558608726</ISBN>
-            </Book>
+                <s:ISBN>9781558608726</s:ISBN>
+            </s:Book>
             
-            <Book>
+            <s:Book>
                 <ct:Title>Programming in Lua</ct:Title>
                 <ct:Publisher>Lua.org</ct:Publisher>
                 <ct:Year>2013</ct:Year>
                 <ct:Edition>3rd Edition</ct:Edition>
                 <ct:Author>Roberto Ierusalimschy</ct:Author>
-                <ISBN>9788590379850</ISBN>
-            </Book>
-        </Books>
+                <s:ISBN>9788590379850</s:ISBN>
+            </s:Book>
+        </s:Books>
         
-        <Journals>
-            <Journal>
-                <Title>Journal of Functional Programming</Title>
-                <Volume>24</Volume>
-                <Number>1</Number>
+        <s:Journals>
+            <s:Journal>
+                <s:Title>Journal of Functional Programming</s:Title>
+                <s:Volume>24</s:Volume>
+                <s:Number>1</s:Number>
                 <ct:Editor>Matthias Felleise</ct:Editor>
                 <ct:Editor>Jeremy Gibbons</ct:Editor>
-                <Year>2014</Year>
-                <ToC>
+                <s:Year>2014</s:Year>
+                <s:ToC>
                     <toc:Article>
                         <toc:Title>Delimited control and computational
                             effects</toc:Title>
@@ -63,9 +64,9 @@
                         <toc:StartPage>113</toc:StartPage>
                         <toc:EndPage>127</toc:EndPage>
                     </toc:Article>
-                </ToC>
-            </Journal>
-        </Journals>
+                </s:ToC>
+            </s:Journal>
+        </s:Journals>
     </ScientificProducts>
 
     <LeisureProducts>
