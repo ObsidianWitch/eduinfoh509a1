@@ -27,5 +27,25 @@
         </Journals>
     </ScientificProducts>
 
-    <LeisureProducts><!-- TODO --></LeisureProducts>
+    <LeisureProducts>
+        <Books>
+            <Book Genre="sci/fi">
+                <Title>Brave New World</Title>
+                <Author>Aldous Huxley</Author>
+                <Publisher>Chatto &amp; Windus</Publisher>
+                <Year>1932</Year>
+            </Book>
+            
+            <Book Genre="sci/fi">
+                <Title>Fahrenheit 451</Title>
+                <Author>Ray Bradbury</Author>
+                <Publisher>Ballantine Books</Publisher>
+                <Year>1953</Year>
+                <Edition>1st edition</Edition>
+                <Pages>159</Pages>
+            </Book>
+        </Books>
+        
+        <!-- TODO -->
+    </LeisureProducts>
 </BookShop>

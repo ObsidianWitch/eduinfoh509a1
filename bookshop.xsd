@@ -42,17 +42,36 @@
             <xsd:element name="ISBN" type="ISBNType" minOccurs="0" />
         </xsd:sequence>
     </xsd:complexType>
-
+    
     <xsd:complexType name="SJournalType">
         <xsd:sequence>
             <!-- TODO -->
         </xsd:sequence>
     </xsd:complexType>
-
+    
     <xsd:complexType name="LeisureProductsType">
         <xsd:sequence>
-            <!-- TODO -->
+            <xsd:element name="Books">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="Book" type="LBookType"
+                            minOccurs="0" maxOccurs="unbounded" />
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
         </xsd:sequence>
+    </xsd:complexType>
+    
+    <xsd:complexType name="LBookType">
+        <xsd:sequence>
+            <xsd:element name="Title" type="xsd:string" />
+            <xsd:element name="Author" type="xsd:string" maxOccurs="unbounded" />
+            <xsd:element name="Publisher" type="xsd:string" />
+            <xsd:element name="Year" type="xsd:gYear" />
+            <xsd:element name="Edition" type="xsd:string" minOccurs="0" />
+            <xsd:element name="Pages" type="xsd:decimal" minOccurs="0" />
+        </xsd:sequence>
+        <xsd:attribute name="Genre" type="GenreType" use="required" />
     </xsd:complexType>
 
     <xsd:group name="AuthorEditorXORGroup">
@@ -66,6 +85,16 @@
         <xsd:restriction base="xsd:decimal">
             <xsd:pattern value="[0-9]{10}" />
             <xsd:pattern value="[0-9]{13}" />
+        </xsd:restriction>
+    </xsd:simpleType>
+    
+    <xsd:simpleType name="GenreType">
+        <xsd:restriction base="xsd:string">
+            <xsd:enumeration value="thriller" />
+            <xsd:enumeration value="horror" />
+            <xsd:enumeration value="sci/fi" />
+            <xsd:enumeration value="romance" />
+            <xsd:enumeration value="literature" />
         </xsd:restriction>
     </xsd:simpleType>
 </xsd:schema>
