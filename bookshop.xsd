@@ -4,6 +4,7 @@
         <xsd:complexType>
             <xsd:sequence>
                 <xsd:element name="ScientificProducts" type="ScientificProductsType"/>
+                <xsd:element name="LeisureProducts" type="LeisureProductsType"/>
             </xsd:sequence>
         </xsd:complexType>
     </xsd:element>
@@ -41,8 +42,14 @@
             <xsd:element name="ISBN" type="ISBNType" minOccurs="0" />
         </xsd:sequence>
     </xsd:complexType>
-    
+
     <xsd:complexType name="SJournalType">
+        <xsd:sequence>
+            <!-- TODO -->
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:complexType name="LeisureProductsType">
         <xsd:sequence>
             <!-- TODO -->
         </xsd:sequence>
