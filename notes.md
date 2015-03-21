@@ -52,3 +52,12 @@ We also could have put the currency in an element instead of an atribute, but
 it is not really data, but more an additional information regarding the price.
 With the way we handled the price, we could easily modify our schema to allow
 multiple *Price* elements for different currencies in *Periodical*.
+
+* * The *ScientificProducts* element contains the *Books* and the *Journals*
+elements. The *Books* element contains *Book* elements and the *Journals*
+element contains *Journals* elements.
+We could have stored both the *Book* and *Journal* elements direcly as children
+of *ScientificProducts*, but by doing so, if we wanted to retrieve a
+specific *Book*, we would have to take the risk of unnecessarily having to skim
+trough some *Journal* elements.
+The same reasoning applies to *LeisureProducts*, *Books* and *Periodicals*.
