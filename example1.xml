@@ -21,5 +21,9 @@
                 <ISBN>9788590379850</ISBN>
             </Book>
         </Books>
+        
+        <Journals>
+            <!-- TODO -->
+        </Journals>
     </ScientificProducts>
 </BookShop>

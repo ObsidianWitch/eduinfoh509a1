@@ -18,6 +18,15 @@
                     </xsd:sequence>
                 </xsd:complexType>
             </xsd:element>
+            
+            <xsd:element name="Journals">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="Journal" type="SJournalType"
+                            minOccurs="0" maxOccurs="unbounded" />
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
         </xsd:sequence>
     </xsd:complexType>
 
@@ -30,6 +39,12 @@
             <xsd:element name="Abstract" type="xsd:string" minOccurs="0" />
             <xsd:element name="Edition" type="xsd:string" minOccurs="0" />
             <xsd:element name="ISBN" type="ISBNType" minOccurs="0" />
+        </xsd:sequence>
+    </xsd:complexType>
+    
+    <xsd:complexType name="SJournalType">
+        <xsd:sequence>
+            <!-- TODO -->
         </xsd:sequence>
     </xsd:complexType>
 
