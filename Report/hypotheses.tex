@@ -1,15 +1,13 @@
 \section{Hypotheses \& design choices}
 
-The goal of this assignment was to create an XSD file to specify how a bookshop
-should store information in XML files. This small report summarizes the
-hypotheses and design choices we made.
+\subsection{General}
 
 First of all, the naming convention we chose is PascalCase for elements and
-PascalCase for attributes in order to have consistent names.
+PascalCase for attributes in order to have consistent names.\\
 
 The Root element is called BookShop. We also could have called it
 Department or BookShopDepartment, but the first name does not give enough
-information (department of what?), while the second one might be too verbose.
+information (department of what?), while the second one might be too verbose.\\
 
 The \emph{ScientificProducts} element contains the \emph{Books} and the
 \emph{Journals} elements. The \emph{Books} element contains \emph{Book} elements
@@ -39,8 +37,91 @@ The same reasoning applies to \emph{LeisureProducts}, \emph{Books} and
 </BookShop>
 \end{lstlisting}
 
+\subsection{Elements \& attributes \small{
+    \cite{cite:ibmGuidelines} \cite{cite:soAttrElem}
+    \cite{cite:ukGovTalkGuidelines}
+}}
+
+There are no rules regarding what should be elements or attributes, the choice
+is mostly arbitrary. However, we can follow some common guidelines.\\
+
+First, if a type of information should appear multiple times (e.g. \emph{Author}
+element in \emph{LBookType}), then it would be better to store it in a element.\\
+
+Essential data, what the XML file is about, should be stored in elements, while
+metadata should be stored in attributes (e.g. the \emph{PriceType} contains a
+decimal value representing the price, and an attribute corresponding to the
+\emph{currency}). Metadata could be, for example, data giving more information
+about an element, information about how an
+application should process the data (e.g. encoding), or an unique identifier.\\
+
+The \emph{PriceType} complex type possesses a \emph{currency} attribute (e.g.
+\verb+<price currency="EUR">10</price>+). We could have said that the
+\emph{PriceType} should contain both the number and the currency in the its
+value, but it would have been impractical if we had to do operations on the
+number later. It would have required to parse the string to extract the number.
+We also could have put the currency in an element instead of an attribute, but
+it is more metadata than essential data.
+With the way we handled the price, we could easily modify our schema to allow
+multiple \emph{Price} elements for different currencies in \emph{Periodical}.
+
+\begin{lstlisting}
+<xsd:complexType name="PriceType">
+    <xsd:simpleContent>
+        <xsd:extension base="xsd:decimal">
+            <xsd:attribute name="currency" type="CurrencyType"
+                use="required" />
+        </xsd:extension>
+    </xsd:simpleContent>
+</xsd:complexType>
+
+<xsd:simpleType name="CurrencyType">
+    <xsd:restriction base="xsd:string">
+        <xsd:enumeration value="EUR" />
+        <xsd:enumeration value="USD" />
+    </xsd:restriction>
+</xsd:simpleType>
+\end{lstlisting}
+
+\subsubsection{Restrictions}
+
+Restrictions can be applied to types in order to check that some conditions
+are met. That is the case with the \emph{ISBNType} and \emph{GenreType}.\\
+
+In the first case, the ISBN in \emph{SBookType} is stored as an \emph{ISBNType}
+which is a number on which restrictions have been defined. The first restriction
+is a pattern checking if the number has 10 digits, while the second one checks
+if the number has 13 digits. One of the two restriction must be validated in
+order for the ISBN to be valid. An ISBN also possesses groups separated by
+hyphens, but we do not store them neither do we check groups.
+\begin{lstlisting}
+<xsd:simpleType name="ISBNType">
+    <xsd:restriction base="xsd:decimal">
+        <xsd:pattern value="[0-9]{10}" />
+        <xsd:pattern value="[0-9]{13}" />
+    </xsd:restriction>
+</xsd:simpleType>
+\end{lstlisting}
+\
+
+In the second case, the assignment specific that the \emph{Genre} in
+\emph{LBookType} should be restricted to the following values: thriller, horror,
+sci/fi, romance and literature. In order to do that, we used XSD's
+\emph{enumeration}.
+\begin{lstlisting}
+<xsd:simpleType name="GenreType">
+    <xsd:restriction base="xsd:string">
+        <xsd:enumeration value="thriller" />
+        <xsd:enumeration value="horror" />
+        <xsd:enumeration value="sci/fi" />
+        <xsd:enumeration value="romance" />
+        <xsd:enumeration value="literature" />
+    </xsd:restriction>
+</xsd:simpleType>
+\end{lstlisting}
 
 
+\newpage
 
 % TODO diagram
 
@@ -49,3 +130,5 @@ The same reasoning applies to \emph{LeisureProducts}, \emph{Books} and
 % inheritance
 
 % TODO split into namespaces
+
+% TODO subsections
