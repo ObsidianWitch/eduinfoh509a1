@@ -3,7 +3,7 @@
 \usepackage[top=2cm, bottom=2cm, left=2cm, right=2cm]{geometry}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
-\usepackage[frenchb]{babel} % TODO replace with \usepackage{indentfirst} when using English
+\usepackage{indentfirst}
 
 % Multiple columns
 \usepackage{multicol}
@@ -78,7 +78,7 @@
 % Code listings
 \usepackage{listings}
 \lstset{
-	language=C,
+	language=XML,
 	basicstyle=\scriptsize,
 	numbers=left,                   % where to put the line-numbers
   	numberstyle=\tiny\color{gray},
@@ -90,7 +90,7 @@
  	rulecolor=\color{black},
 	emph={},
 	emphstyle=\color{mauve},
-	morekeywords=[2]{},
+	morekeywords=[2]{BookShop, ScientificProducts, s:Books, s:Book, s:Journals, s:Journal},
 	keywordstyle=[2]{\color{dkgreen}},
 	showstringspaces=false,
   	tabsize=4,
@@ -111,7 +111,6 @@
 %\tableofcontents
 %\newpage
 
-\include{introduction}
 \include{hypotheses}
 
 \begin{thebibliography}{5}

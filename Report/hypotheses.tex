@@ -1,3 +1,51 @@
-\section{Hypotheses}
-% TODO
-\newpage
+\section{Hypotheses \& design choices}
+
+The goal of this assignment was to create an XSD file to specify how a bookshop
+should store information in XML files. This small report summarizes the
+hypotheses and design choices we made.
+
+First of all, the naming convention we chose is PascalCase for elements and
+PascalCase for attributes in order to have consistent names.
+
+The Root element is called BookShop. We also could have called it
+Department or BookShopDepartment, but the first name does not give enough
+information (department of what?), while the second one might be too verbose.
+
+The \emph{ScientificProducts} element contains the \emph{Books} and the
+\emph{Journals} elements. The \emph{Books} element contains \emph{Book} elements
+and the \emph{Journals} element contains \emph{Journals} elements.
+We could have stored both the \emph{Book} and \emph{Journal} elements directly
+as children of \emph{ScientificProducts}, but by doing so, if we wanted to
+retrieve a specific \emph{Book}, we would have to take the risk of unnecessarily
+having to skim trough some \emph{Journal} elements.
+The same reasoning applies to \emph{LeisureProducts}, \emph{Books} and
+\emph{Periodicals}.
+\begin{lstlisting}
+<BookShop ...>
+    <ScientificProducts>
+        <s:Books>
+            <s:Book>...</s:Book>
+            <s:Book>...</s:Book>
+            ...
+        </s:Books>
+        
+        <s:Journals>
+            <s:Journal>...</s:Journal>
+            <s:Journal>...</s:Journal>
+            ...
+        </s:Journals>
+    </ScientificProducts>
+    ...
+</BookShop>
+\end{lstlisting}
+
+
+
+
+% TODO diagram
+
+% TODO refactoring done to avoid repetition
+% TODO talk about groups being similar to composition in OOP and base to
+% inheritance
+
+% TODO split into namespaces
