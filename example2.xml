@@ -1,0 +1,51 @@
+<?xml version="1.1" encoding="UTF-8"?>
+
+<BookShop xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="urn:2015:A1:BookShop BookShop.xsd"
+    xmlns="urn:2015:A1:BookShop"
+    xmlns:c="urn:2015:A1:BookShop:CommonTypes"
+    xmlns:s="urn:2015:A1:BookShop:ScientificTypes"
+    xmlns:l="urn:2015:A1:BookShop:LeisureTypes">
+    
+    <ScientificProducts>
+        <s:Books>
+            <s:Book>
+                <c:Title>An Introduction to Bioinformatics Algorithms</c:Title>
+                <c:Publisher>The MIT Press</c:Publisher>
+                <c:Year>20043</c:Year>
+                <c:Author>Neil C. Jones</c:Author>
+                <c:Author>Pavel A. Pevzner</c:Author>
+                <s:Abstract>
+                    This introductory text offers a clear exposition of
+                    the algorithmic principles driving advances in bioinformatics.
+                    Accessible to students in both biology and computer science,
+                    it strikes a unique balance between rigorous mathematics and
+                    practical techniques, emphasizing the ideas underlying
+                    algorithms rather than offering a collection of apparently
+                    unrelated problems.
+                    ...
+                </s:Abstract>
+                <s:ISBN>9780262101066</s:ISBN>
+            </s:Book>
+        </s:Books>
+        
+        <s:Journals>
+        </s:Journals>
+    </ScientificProducts>
+
+    <LeisureProducts>
+        <l:Books>
+            <l:Book Genre="romance">
+                <c:Title>Spice and Wolf Volume 1</c:Title>
+                <c:Publisher>Yen Press</c:Publisher>
+                <c:Year>2009</c:Year>
+                <l:Author>Isuna Hasekura</l:Author>
+                <l:Pages>240</l:Pages>
+            </l:Book>
+        </l:Books>
+        
+        <l:Periodicals>
+        </l:Periodicals>
+    </LeisureProducts>
+    
+</BookShop>
