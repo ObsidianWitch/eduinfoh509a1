@@ -5,9 +5,10 @@
 First of all, the naming convention we chose is PascalCase for elements and
 PascalCase for attributes in order to have consistent names.\\
 
-The Root element is called BookShop. We also could have called it
-Department or BookShopDepartment, but the first name does not give enough
-information (department of what?), while the second one might be too verbose.\\
+The Root element is called \emph{BookShop}. We also could have called it
+\emph{Department} or \emph{BookShopDepartment}, but the first name does not give
+enough information (department of what?), while the second one might be too
+verbose.\\
 
 The \emph{ScientificProducts} element contains the \emph{Books} and the
 \emph{Journals} elements. The \emph{Books} element contains \emph{Book} elements
@@ -144,7 +145,7 @@ We could also have put the \emph{Title} and \emph{Publisher} in a base element
 or group called \emph{BaseProduct}. However, it would only have been used by
 \emph{BaseBookType} and \emph{LPeriodicalType} since \emph{SJournalType}'s
 \emph{Publisher} element is optional. If only some of the products are
-\emph{BaseProduct}s, then it cannot be considered a \emph{BaseProduct}.
+\emph{BaseProduct}s, then it cannot be considered a \emph{BaseProduct}.\\
 
 \begin{framehint}
 \textbf{N.B.} The diagram is not represented in a standard way, it takes some
@@ -155,10 +156,72 @@ way: \emph{\{0..n\}} to specify that an element is optional and can occur multip
 times.
 \end{framehint}
 
+\subsection{Namespaces \small{
+    \cite{cite:oracleNamespaces} \cite{cite:liquidNamespaces}
+}}
+
+An XML namespace is an URI, as such it can be an URL or an URN. URLs are
+commonly used for namespaces (e.g.
+\href{http://www.w3.org/2001/XMLSchema}{http://www.w3.org/2001/XMLSchema}). But
+it does not seem to make a lot of sense, since a namespace is only supposed to
+identify and not to locate. As such, we used URNs for our namespaces (e.g.
+\emph{urn:2015:A1:BookShop}).\\
+    
+We have separated our main schema into multiple files, which grants us easier
+to read schemas. We have defined the following namespaces:
+
+\begin{itemize}
+    \item \textbf{urn:2015:A1:BookShop}: main schema, defines the root element,
+    i.e., \emph{BookShop}
+    
+    \item \textbf{urn:2015:A1:BookShop:CommonTypes}: common types, used in other
+    schemas, i.e., \emph{BaseBookType}, \emph{AuthorEditorXORGroup},
+    \emph{ISBNType}, \emph{GenreType}, \emph{PriceType}, \emph{CurrencyType}
+    
+    \item \textbf{urn:2015:A1:BookShop:TableOfContentsTypes}: table of contents
+    types, i.e., \emph{ToCType}, \emph{ToCArticleType},
+    \emph{ToCArticlePositionGroup}
+    
+    \item \textbf{urn:2015:A1:BookShop:ScientificTypes}: scientific types, i.e.,
+    \emph{ScientificProducts}, \emph{SBooksRootType}, \emph{SBookType},
+    \emph{SJournalsRootType}, \emph{SJournalType}
+    
+    \item \textbf{urn:2015:A1:BookShop:LeisureTypes}: leisure types, i.e.,
+    \emph{LeisureProductsType}, \emph{LBooksRootType}, \emph{LBookType},
+    \emph{LPeriodicalsRootType}, \emph{LPeriodicalType}
+\end{itemize}
+\
+
+However, the use of namespaces in an XML instance is less straightforward than
+without. Furthermore, the multiple namespaces may not be organized/handled in
+the best way, and as such the creation of an XML instance of the BookShop schema
+might not be intuitive. Let's see the example below.\\
+
+\begin{lstlisting}
+...
+<s:Book>
+    <c:Title>Programming in Lua</c:Title>
+    <c:Publisher>Lua.org</c:Publisher>
+    <c:Year>2013</c:Year>
+    <c:Edition>3rd Edition</c:Edition>
+    <c:Author>Roberto Ierusalimschy</c:Author>
+    <s:ISBN>9788590379850</s:ISBN>
+</s:Book>
+...
+\end{lstlisting}
+\
+
+As we can see, the Book element is included in the \emph{s} namespace
+(\emph{urn:2015:A1:BookShop:ScientificTypes}), but some of its
+children elements are owned by the \emph{c} namespace (
+\emph{urn:2015:A1:BookShop:LeisureTypes}) and some others by \emph{s}. This is
+due to \emph{SBookType} in the ScientificTypes namespace subclassing
+\emph{BaseBookType} in the CommonTypes namespace.\\
+
+\begin{framehint}
+We could have renamed \emph{SBookType} and \emph{LBookType} into \emph{BookType}
+because they are in different namespaces. However, we decided not to rename them
+in order to more easily distinguish them by their name.
+\end{framehint}
+
 \newpage
-
-
-
-% TODO split into namespaces
-
-% TODO subsections
