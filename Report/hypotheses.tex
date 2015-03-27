@@ -120,14 +120,44 @@ sci/fi, romance and literature. In order to do that, we used XSD's
 </xsd:simpleType>
 \end{lstlisting}
 
+\subsection{Subclassing \& composition}
+
+Like Object-Oriented Programming, XSD has subclassing and composition mechanisms.
+Subclassing can be achieved trough the \emph{xsd:extension} element and its
+\emph{base} attribute. Composition can be achieved with the \emph{xsd:group}
+element. The problems are the same as with OOP, composition should be preferred
+to inheritance if it can be applied. Problems such as needing to modify the
+children if the base element is modified can arise with subclassing.
+\newpage
+
+As we can see in the diagram below, \emph{SBookType} and \emph{LBookType} are
+subclasses from \emph{BaseBookType}. \emph{SBootType} and \emph{SJournalType}
+also contain the \emph{AuthorEditorXORGroup} (composition).\\
+
+\begin{figure}[h!]
+    \includegraphics[width=0.6\textwidth]{images/subclassingCompositionDiag.png}
+    \centering
+    \caption{Relationship between (some) types}
+\end{figure}
+
+We could also have put the \emph{Title} and \emph{Publisher} in a base element
+or group called \emph{BaseProduct}. However, it would only have been used by
+\emph{BaseBookType} and \emph{LPeriodicalType} since \emph{SJournalType}'s
+\emph{Publisher} element is optional. If only some of the products are
+\emph{BaseProduct}s, then it cannot be considered a \emph{BaseProduct}.
+
+\begin{framehint}
+\textbf{N.B.} The diagram is not represented in a standard way, it takes some
+elements from UML in order to try to describe our design choices more easily.
+The boxes represent element types, which own other elements and attributes
+represented by fields. The number of occurences is represented in the following
+way: \emph{\{0..n\}} to specify that an element is optional and can occur multiple
+times.
+\end{framehint}
 
 \newpage
 
-% TODO diagram
 
-% TODO refactoring done to avoid repetition
-% TODO talk about groups being similar to composition in OOP and base to
-% inheritance
 
 % TODO split into namespaces
 
