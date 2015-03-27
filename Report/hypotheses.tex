@@ -3,7 +3,7 @@
 \subsection{General}
 
 First of all, the naming convention we chose is PascalCase for elements and
-PascalCase for attributes in order to have consistent names.\\
+camelCase for attributes in order to have consistent names.\\
 
 The Root element is called \emph{BookShop}. We also could have called it
 \emph{Department} or \emph{BookShopDepartment}, but the first name does not give
@@ -12,11 +12,11 @@ verbose.\\
 
 The \emph{ScientificProducts} element contains the \emph{Books} and the
 \emph{Journals} elements. The \emph{Books} element contains \emph{Book} elements
-and the \emph{Journals} element contains \emph{Journals} elements.
+and the \emph{Journals} element contains \emph{Journal} elements.
 We could have stored both the \emph{Book} and \emph{Journal} elements directly
 as children of \emph{ScientificProducts}, but by doing so, if we wanted to
 retrieve a specific \emph{Book}, we would have to take the risk of unnecessarily
-having to skim trough some \emph{Journal} elements.
+having to skim trough some \emph{Journal} elements (increase computation time).
 The same reasoning applies to \emph{LeisureProducts}, \emph{Books} and
 \emph{Periodicals}.
 \begin{lstlisting}
@@ -53,16 +53,16 @@ Essential data, what the XML file is about, should be stored in elements, while
 metadata should be stored in attributes (e.g. the \emph{PriceType} contains a
 decimal value representing the price, and an attribute corresponding to the
 \emph{currency}). Metadata could be, for example, data giving more information
-about an element, information about how an
-application should process the data (e.g. encoding), or an unique identifier.\\
+about an element, information about how an application should process the data
+(e.g. encoding), or an unique identifier.\\
 
 The \emph{PriceType} complex type possesses a \emph{currency} attribute (e.g.
 \verb+<price currency="EUR">10</price>+). We could have said that the
-\emph{PriceType} should contain both the number and the currency in the its
+\emph{PriceType} should contain both the number and the currency in its
 value, but it would have been impractical if we had to do operations on the
 number later. It would have required to parse the string to extract the number.
 We also could have put the currency in an element instead of an attribute, but
-it is more metadata than essential data.
+the currency is more metadata than essential data.
 With the way we handled the price, we could easily modify our schema to allow
 multiple \emph{Price} elements for different currencies in \emph{Periodical}.
 
@@ -105,9 +105,9 @@ hyphens, but we do not store them neither do we check groups.
 \end{lstlisting}
 \
 
-In the second case, the assignment specific that the \emph{Genre} in
-\emph{LBookType} should be restricted to the following values: thriller, horror,
-sci/fi, romance and literature. In order to do that, we used XSD's
+In the second case, the assignment specifies that the \emph{Genre} in
+\emph{LBookType} should be restricted to one of the following values: thriller,
+horror, sci/fi, romance and literature. In order to do that, we used XSD's
 \emph{enumeration}.
 \begin{lstlisting}
 <xsd:simpleType name="GenreType">
@@ -131,7 +131,7 @@ to inheritance if it can be applied. Problems such as needing to modify the
 children if the base element is modified can arise with subclassing.
 \newpage
 
-As we can see in the diagram below, \emph{SBookType} and \emph{LBookType} are
+As can be seen in the diagram below, \emph{SBookType} and \emph{LBookType} are
 subclasses from \emph{BaseBookType}. \emph{SBootType} and \emph{SJournalType}
 also contain the \emph{AuthorEditorXORGroup} (composition).\\
 
@@ -145,13 +145,15 @@ We could also have put the \emph{Title} and \emph{Publisher} in a base element
 or group called \emph{BaseProduct}. However, it would only have been used by
 \emph{BaseBookType} and \emph{LPeriodicalType} since \emph{SJournalType}'s
 \emph{Publisher} element is optional. If only some of the products are
-\emph{BaseProduct}s, then it cannot be considered a \emph{BaseProduct}.\\
+\emph{BaseProduct}s, then it cannot really be considered a \emph{BaseProduct}
+(naming problem). We preferred not to implement it in order to keep the schema
+easy to read.\\
 
 \begin{framehint}
 \textbf{N.B.} The diagram is not represented in a standard way, it takes some
 elements from UML in order to try to describe our design choices more easily.
 The boxes represent element types, which own other elements and attributes
-represented by fields. The number of occurences is represented in the following
+represented by fields. The number of occurrences is represented in the following
 way: \emph{\{0..n\}} to specify that an element is optional and can occur multiple
 times.
 \end{framehint}
@@ -193,7 +195,7 @@ to read schemas. We have defined the following namespaces:
 \
 
 However, the use of namespaces in an XML instance is less straightforward than
-without. Furthermore, the multiple namespaces may not be organized/handled in
+without. Furthermore, the multiple namespaces may not be organised/handled in
 the best way, and as such the creation of an XML instance of the BookShop schema
 might not be intuitive. Let's see the example below.\\
 
